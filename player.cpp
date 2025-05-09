@@ -33,7 +33,7 @@ bool Player::moveUp()
 }
 bool Player::moveDn()
 {
-    if (position->y < DUNGEN_SIZE - 1)
+    if (position->y < DUNGEON::DUNGEON_SIZE - 1)
     {
         position->y++;
         return true;
@@ -51,7 +51,7 @@ bool Player::moveLt()
 }
 bool Player::moveRt()
 {
-    if (position->x < DUNGEN_SIZE - 1)
+    if (position->x < DUNGEON::DUNGEON_SIZE - 1)
     {
         position->x--;
         return true;

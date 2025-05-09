@@ -1,16 +1,16 @@
-#include <ctime>
-#include <cstdlib>
 #include <iostream>
+#include <random>
 
-inline bool seed_once = []()
-{ std::srand(std::time(nullptr)); return true; }();
+static std::random_device rd;
+static std::mt19937 gen(rd());
 
 inline int randint(int min, int max)
 {
     if (min > max)
         std::swap(min, max);
     else if (min == max)
-        return max;
+        return min;
 
-    return min + std::rand() % (max - min + 1);
+    static std::uniform_int_distribution<> dist;
+    return dist(gen, std::uniform_int_distribution<>::param_type(min, max));
 }
